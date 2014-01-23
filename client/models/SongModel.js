@@ -11,6 +11,7 @@ var SongModel = Backbone.Model.extend({
   },
   ended: function(){
     // debugger;
+    console.log('model ended event');
     this.trigger('ended', this);
     //maybe do something?
   },
@@ -18,6 +19,7 @@ var SongModel = Backbone.Model.extend({
     this.trigger('enqueue', this);
   },
   dequeue: function(){
+    console.log('model dequeue event');
     this.trigger('dequeue', this);
   }
 });

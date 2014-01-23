@@ -9,13 +9,14 @@ var SongQueue = Songs.extend({
       }
     }, this);
     this.on('ended', function(song){
-        console.log('ended');
+        console.log('queue heard model ended event');
         if (this.models.length > 0){
           this.playFirst();
         }
       }, this);
 
     this.on('dequeue', function(song){
+      console.log('queue heard model dequeue event')
       this.remove(song);
     });
   },
