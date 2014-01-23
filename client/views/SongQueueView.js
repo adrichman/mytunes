@@ -4,14 +4,11 @@ var SongQueueView = Backbone.View.extend({
   className: 'table table-striped table-hover queue-table',
   initialize: function() {
     this.renderAll();
-    // this.render();
     this.collection.on('change', function(){
       this.repaint;
     }, this);
     this.collection.on('add', this.addOne, this);
-    this.collection//.on('reset', this.renderAll, this)
-        .on('remove', this.renderAll, this)
-    // }, this);
+    this.collection.on('remove', this.renderAll, this)
   },
   addOne: function(song){
     var songQueueEntryView = new SongQueueEntryView({model: song});
@@ -28,7 +25,6 @@ var SongQueueView = Backbone.View.extend({
     this.render();
   },
   repaint: function(){
-    // this.$el.empty();
     this.$el.html(this.$el);
   }
 

@@ -29,4 +29,11 @@ describe("LibraryView", function() {
     expect(view.$el.children().length).toBe(2);
     expect(view.$el.children()[0].tagName).toBe('TH');
   });
+
+  it("should render on song play", function(){
+    libraryRenderSpy = spyOn(LibraryView.prototype, 'render').andCallThrough();
+    view = new LibraryView({collection: fakeSongs});
+    fakeSongs.models[0].play();
+    expect(libraryRenderSpy.callCount).toEqual(2);
+  });
 });

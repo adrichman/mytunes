@@ -38,4 +38,17 @@ describe('SongModel', function() {
       expect(model.trigger).toHaveBeenCalledWith('ended', model);
     });
   });
+
+  describe('play count', function(){
+    it('should have a play count of zero if it has not been played', function(){
+      var count = model.get('playCount');
+      expect(count).toEqual(0);
+    });
+    it('should increment the play count when it is played', function(){
+      model.play();
+      model.play();
+      var count = model.get('playCount');
+      expect(count).toEqual(2);
+    });
+  });
 });
