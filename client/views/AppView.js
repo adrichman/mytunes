@@ -11,15 +11,20 @@ var AppView = Backbone.View.extend({
     }, this);
 
     this.render();
+    this.playerView.$el.on('ended', this.changeSongLabel.bind(this.model));
   },
 
   render: function(){
     $('body').append(this.$el.html([
-      $('<label></label>'),
+      $('<label class="label label-info" style="display: none"></label>'),
       this.playerView.$el,
       this.libraryView.$el,
       this.songQueueView.$el
     ]));
+  },
+  changeSongLabel: function(){
+    var song = this.get('currentSong');
+    $('label').html('Last played: '+song.get('title')+", by: "+song.get('artist')+".");
   }
 
 });
