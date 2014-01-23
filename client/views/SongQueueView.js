@@ -5,18 +5,11 @@ var SongQueueView = Backbone.View.extend({
   initialize: function() {
     this.render();
     this.collection.on('change', function(){
-      console.log('change!!');
       this.repaint;
     }, this);
-    this.collection.on('add', this.addOne, this),
-    this.collection.on('add', function(song){
-      if(this.collection.models.length === 1){
-        song.play();
-      }
-    }, this)
-    ;
+    this.collection.on('add', this.addOne, this)
+
     // .on('remove', function(){
-    //   console.log(this.collection.models);  
     // }, this);
   },
 
@@ -31,7 +24,6 @@ var SongQueueView = Backbone.View.extend({
   repaint: function(){
     // this.$el.empty();
     this.$el.html(this.$el);
-    console.log('sup!');
   }
 
 });
