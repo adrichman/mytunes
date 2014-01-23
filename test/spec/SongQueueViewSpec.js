@@ -20,6 +20,7 @@ describe('SongQueueView', function() {
     spyOn(SongQueueEntryView.prototype, 'render').andCallThrough();
     view = new SongQueueView({collection: fakeSongs});
     view.render();
+    debugger;
     expect(SongQueueEntryView.prototype.render).toHaveBeenCalled();
   });
 
