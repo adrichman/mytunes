@@ -10,10 +10,6 @@ var AppView = Backbone.View.extend({
       this.playerView.setSong(model.get('currentSong'));
     }, this);
 
-    this.libraryView.collection.on('enqueue', function(song){
-      console.log('enqueue!')
-      this.songQueueView.add(song);
-    }, this);
     this.render();
   },
 
