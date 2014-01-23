@@ -21,14 +21,14 @@ describe('PlayerView', function() {
     appView = new AppView({model: new AppModel({library: library})});
   });
 
-  xit('gets its model property set to any song that is played', function(){
+  it('gets its model property set to any song that is played', function(){
     expect(appView.playerView.model).not.toEqual(library.at(0));
     library.at(0).play();
     expect(appView.playerView.model).toEqual(library.at(0));
   });
 
   describe('Song transitions', function() {
-    xit('dequeues a song when finished playing & plays the next song', function(){
+    it('dequeues a song when finished playing & plays the next song', function(){
       library.at(0).play();
       var originalSong = appView.playerView.model;
       appView.model.get('songQueue').add(library.at(1));

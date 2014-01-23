@@ -19,12 +19,12 @@ describe('AppView', function() {
     appView = new AppView({model: app});
   });
 
-  xit('should generate a PlayerView when created', function(){
+  it('should generate a PlayerView when created', function(){
     expect(appView.playerView).toEqual(jasmine.any(PlayerView));
   });
 
   describe('when the currently playing song changes', function() {
-    xit('updates current song in playerView', function(){
+    it('updates current song in playerView', function(){
       var song = app.get('library').at(0);
       expect(appView.playerView.model).not.toEqual(song);
       song.play();
